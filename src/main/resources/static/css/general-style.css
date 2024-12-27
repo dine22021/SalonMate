@@ -1,0 +1,427 @@
+/* General Styling for all pages */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #121212; /* Dark background for the whole site */
+  color: #ffffff;
+  padding-top: 80px; /* Adjust this value based on the height of your fixed header */
+}
+
+/* Navbar Styles */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: #000;
+  z-index: 1000;
+}
+
+header .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar .logo {
+  color: #fff;
+  font-weight: 600;
+  font-size: 2.1rem;
+  text-decoration: none;
+}
+
+.navbar .menu-links {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.navbar a:hover {
+  color: #C06B3E;
+}
+
+/* Mobile Menu Toggle */
+#hamburger-btn {
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+#close-menu-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar .menu-links {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background: #333;
+    flex-direction: column;
+    padding: 70px 40px 0;
+    transition: left 0.3s ease;
+  }
+
+  header.show-mobile-menu .navbar .menu-links {
+    left: 0;
+  }
+
+  #hamburger-btn, #close-menu-btn {
+    display: block;
+  }
+
+  .navbar a {
+    color: #000;
+  }
+}
+
+/* Hero Section (Home Page) */
+.hero-section {
+  height: 100vh;
+  background: url('path/to/your/hero-image.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.hero-section .content {
+  max-width: 1000px;
+  text-align: center;
+}
+
+.hero-section .content h2 {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.hero-section .content p {
+  font-weight: 300;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.hero-section .content button {
+  background: #C06B3E;
+  padding: 12px 30px;
+  border: none;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.hero-section .content button:hover {
+  background: #9e5732;
+}
+
+/* Enhanced About section styling */
+.about-section {
+  padding: 40px 30px;
+  max-width: 900px;
+  width: 85%; /* Increase width to take up more horizontal space */
+  margin: 100px auto; /* Adjusted spacing from header */
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.8); /* Optional slight background for readability */
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.about-section h2 {
+  font-size: 2.7rem;
+  color: #C06B3E;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.about-section h3 {
+  font-size: 2rem;
+  color: #C06B3E;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.about-section p, .about-section ul {
+  color: #cccccc;
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
+
+.about-section ul {
+  margin-left: 20px;
+  padding-left: 15px;
+}
+
+.about-section ul li {
+  list-style-type: disc;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  /* Mobile adjustments */
+  .about-section {
+    padding: 20px;
+    width: 90%;
+    margin: 80px auto;
+  }
+
+  .about-section h2 {
+    font-size: 2rem;
+  }
+
+  .about-section h3 {
+    font-size: 1.6rem;
+  }
+}
+
+/* View Bookings Page */
+.view-section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #ffffff;
+  text-align: center;
+}
+
+.view-section h2 {
+  font-size: 2.5rem;
+  color: #C06B3E;
+  margin-bottom: 20px;
+}
+
+.view-section .bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px;
+  background-color: #333;
+  border-radius: 20px;
+}
+
+.view-section .bookings-table th, .view-section .bookings-table td {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #444444;
+}
+
+.view-section .bookings-table th {
+  background-color: #C06B3E;
+  color: white;
+  font-weight: 600;
+}
+
+.view-section .bookings-table tr:nth-child(even) {
+  background-color: #444444;
+}
+
+.view-section .bookings-table tr:hover {
+  background-color: #555555;
+}
+
+.view-section .bookings-table td {
+  color: #ffffff;
+}
+
+.view-section .cancel-btn {
+  background-color: #C06B3E;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.view-section .cancel-btn:hover {
+  background-color: #9e5732;
+}
+
+/*.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal Box 
+.modal-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+/* Close Button 
+.modal-box .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: #999;
+  cursor: pointer;
+}
+
+.modal-box h3 {
+  margin-bottom: 10px;
+}
+
+.modal-box p {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Modal Buttons 
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-buttons button {
+  background-color: #f082ac;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-buttons button:hover {
+  background-color: #ec5f95;
+}
+
+.modal-buttons .cancel {
+  background-color: #f082ac;
+}
+
+.modal-buttons .cancel:hover {
+  background-color: #ec5f95;
+}*/
+
+/* Create Section Styling */
+.create-section {
+    padding: 50px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #333;
+    border-radius: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+  }
+  
+  .create-heading {
+    font-size: 2.7rem;
+    color: #C06B3E;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .create-section .alert {
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 90px;
+  }
+  
+  .create-section .alert.success {
+    background-color: #4CAF50;
+    color: #fff;
+  }
+  
+  .create-section .alert.error {
+    background-color: #f44336;
+    color: #fff;
+  }
+  
+  .create-section .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .create-section .booking-form label {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+  
+  .create-section .booking-form input,
+  .create-section .booking-form select,
+  .create-section .booking-form textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #444;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  .create-section .booking-form input[type="submit"],
+  .create-section .booking-form button {
+    background-color: #C06B3E;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+  }
+  
+  .create-section .booking-form input[type="submit"]:hover,
+  .create-section .booking-form button:hover {
+    background-color: #9e5732;
+  } 
+  /* Adjustments for Responsive Design */
+  @media (max-width: 768px) {
+    .create-section {
+      padding: 40px 20px;
+    }
+  
+    .create-section h2 {
+      font-size: 2rem;
+    }
+  
+    .create-section .booking-form {
+      gap: 10px;
+    }
+  
+    .create-section .booking-form input,
+    .create-section .booking-form button {
+      font-size: 1rem;
+    }
+  }

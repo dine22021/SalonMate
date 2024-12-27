@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SalonMate | Home</title>
+    <link rel="stylesheet" href="/css/general-style.css">
+    <!-- Google Fonts Links For Icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+  </head>
+  <body style="background-color: black;">
+    <header>
+      <nav class="navbar">
+        <a class="logo" th:href="@{/home}">SalonMate<span>.</span></a>
+        <ul class="menu-links">
+          <li><a th:href="@{/home}">Home</a></li>
+          <li><a th:href="@{/my-bookings}">Bookings</a></li>
+          <li><a th:href="@{/about-us}">About Us</a></li>
+          <li><a th:href="@{/logout}">Log Out</a></li>
+        </ul>
+        <span id="hamburger-btn" class="material-symbols-outlined">menu</span>
+      </nav>
+    </header>
+
+    <section class="hero-section">
+      <div class="content">
+        <h2>Feel Renewed with Expert Care</h2>
+        <p>
+          Indulge yourself with our premium salon services. Book your session today and experience the best of beauty and relaxation!
+        </p>
+        <button onclick="location.href='/book-slot'">Book Now</button>
+        <button onclick="location.href='/my-bookings'">View Bookings</button>
+      </div>
+    </section>
+
+    <script>
+      const header = document.querySelector("header");
+      const hamburgerBtn = document.querySelector("#hamburger-btn");
+      const closeMenuBtn = document.querySelector("#close-menu-btn");
+
+      // Toggle mobile menu on hamburger button click
+      hamburgerBtn.addEventListener("click", () => header.classList.toggle("show-mobile-menu"));
+
+      // Close mobile menu on close button click
+      closeMenuBtn.addEventListener("click", () => hamburgerBtn.click());
+    </script>
+    
+  </body>
+</html>

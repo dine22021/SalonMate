@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Booking | SalonMate</title>
+    <link rel="stylesheet" href="/css/general-style.css">
+</head>
+<body style="background-color: black;">
+    <header>
+        <nav class="navbar">
+            <a class="logo" href="#">SalonMate<span>.</span></a>
+            <ul class="menu-links">
+                <li><a th:href="@{/home}">Home</a></li>
+                <li><a th:href="@{/my-bookings}">Bookings</a></li>
+                <li><a th:href="@{/about-us}">About Us</a></li>
+                <li><a th:href="@{/logout}">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+    <br>
+    <div>
+    <h2 class="create-heading">Create a New Booking</h2>
+    <section class="create-section">
+        <!-- Display success message if booking successful -->
+        <div th:if="${success != null}" class="alert success">
+            <p th:text="${success}">Slot Booked Successfully!</p>
+        </div>
+
+        <!-- Display error message if booking fails -->
+        <div th:if="${error != null}" class="alert error">
+            <p th:text="${error}">Slot is currently Occupied. Please try a different time.</p>
+        </div>
+        <!-- Booking Form -->
+        <form th:action="@{/book-slot}" method="post" class="booking-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required placeholder="Enter your username">
+
+            <label for="bookingDate">Booking Date:</label>
+            <input type="date" id="bookingDate" name="bookingDate" required>
+
+            <label for="timeSlot">Time Slot:</label>
+            <input type="time" id="timeSlot" name="timeSlot" required>
+
+            <button type="submit" class="book-btn">Book Slot</button>
+        </form>
+        
+    </section>
+</div>
+</body>
+</html>

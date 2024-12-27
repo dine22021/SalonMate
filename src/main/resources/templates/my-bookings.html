@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings | SalonMate</title>
+    <link rel="stylesheet" href="/css/general-style.css">
+</head>
+<body style="background-color: black;">
+    <header>
+        <nav class="navbar">
+            <a class="logo" href="#">SalonMate<span>.</span></a>
+            <ul class="menu-links">
+                <li><a th:href="@{/home}">Home</a></li>
+                <li><a th:href="@{/my-bookings}">Bookings</a></li>
+                <li><a th:href="@{/about-us}">About Us</a></li>
+                <li><a th:href="@{/logout}">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="view-section">
+        <h2>My Bookings</h2>
+        <p>Your upcoming and past bookings are listed below. To cancel a booking, click "Cancel".</p>
+        <br>
+        <div th:if="${bookings != null && !bookings.isEmpty()}">
+            <table class="bookings-table">
+                <thead>
+                    <tr>
+                        <th>Booking Number</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="booking : ${bookings}">
+                        <td th:text="${booking.bookingNumber}"></td>
+                        <td th:text="${booking.bookingDate}"></td>
+                        <td th:text="${booking.timeSlot}"></td>
+                        <td>
+                            <!-- Cancellation Form -->
+                            <form th:action="@{/cancel}" method="post">
+                                <input type="hidden" name="username" th:value="${username}"/>
+                                <input type="hidden" name="bookingId" th:value="${booking.id}"/>
+                                <button type="submit" class="cancel-btn">Cancel</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <div th:if="${bookings == null || bookings.isEmpty()}">
+            <p>You have no bookings at this time.</p>
+        </div>
+    </section>
+</body>
+</html>
